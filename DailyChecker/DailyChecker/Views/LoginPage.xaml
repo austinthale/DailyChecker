@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="DailyChecker.Views.LoginPage">
+    <ContentPage.Content>
+        <StackLayout x:Name="MasterLayout" VerticalOptions="FillAndExpand">
+            <StackLayout x:Name="LogoStack">
+                <Image x:Name="LoginIcon" Source="testIcon.png" Margin="0,80,0,0"/>
+            </StackLayout>
+
+            <StackLayout x:Name="LoginEntriesStack" VerticalOptions="StartAndExpand">
+                <StackLayout.Padding>
+                    <OnIdiom x:TypeArguments="Thickness" Phone="40,0,40,0" Tablet="140,150,140,0"/>
+                </StackLayout.Padding>
+
+                <ActivityIndicator x:Name="ActivitySpinner" Color="Red" IsRunning="True"/>
+
+                <Label x:Name="Lbl_Username" Text="Username:" />
+                <Entry x:Name="Entry_Username" Placeholder="Username"/>
+                <Label  x:Name="Lbl_Password" Text="Password"/>
+                <Entry x:Name="Entry_Password" Placeholder="Password"/>
+                <Button x:Name="Btn_SignIn" Text="Sign In" Clicked="SignIn_Clicked"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
