@@ -8,6 +8,7 @@
     <ContentPage.Content>
         <StackLayout x:Name="MasterLayout" VerticalOptions="FillAndExpand">
             <StackLayout x:Name="LogoStack">
+                <Label x:Name="lbl_NoInternet" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Red"/>
                 <Image x:Name="LoginIcon" Source="testIcon.png" Margin="0,80,0,0"/>
             </StackLayout>
 
