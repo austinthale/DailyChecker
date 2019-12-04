@@ -1,4 +1,5 @@
 ﻿using DailyChecker.Models;
+using DailyChecker.Views.Menu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,10 +39,20 @@ namespace DailyChecker.Views
             if (user.ValidateLogin())
             {
                 DisplayAlert("Login", "Login Success", "OK");
-                var result = await App.RestService.Login(user);
-                if (result.AccessToken != null)
+                //var result = await App.RestService.Login(user);
+                var result = new Token();
+                if (result != null)
                 {
-                    App.UserDatabase.SaveUser(user);
+                    //App.UserDatabase.SaveUser(user);
+                    //App.TokenDatabase.SaveToken(result);
+                    if(Device.RuntimePlatform == Device.Android)
+                    {
+                        Application.Current.MainPage = new NavigationPage(new Dashboard());
+                    }
+                    else if (Device.RuntimePlatform == Device.iOS)
+                    {
+                        await Navigation.PushModalAsync(new NavigationPage(new Dashboard()));
+                    }
                 }
             }
             else
