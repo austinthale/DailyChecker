@@ -18,5 +18,6 @@ namespace DailyChecker.Models
         public static string LoginUrl = "http://test.com/api/Auth/Login";
 
         public static string NoInternetText => "No Internet Connection. Please Reconnect.";
+        public static string SettingsScreenTitle => "Settings";
     }
 }

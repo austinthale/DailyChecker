@@ -13,6 +13,7 @@ namespace DailyChecker
     {
         static TokenDatabaseController tokenDatabase;
         static UserDatabaseController userDatabase;
+        static SettingsDatabaseController settingsDatabase;
         static RestService restService;
         private static Label labelScreen;
         private static bool hasInternet;
@@ -63,6 +64,18 @@ namespace DailyChecker
                     tokenDatabase = new TokenDatabaseController();
                 }
                 return tokenDatabase;
+            }
+        }
+
+        public static SettingsDatabaseController SettingsDatabase
+        {
+            get
+            {
+                if (settingsDatabase is null)
+                {
+                    settingsDatabase = new SettingsDatabaseController();
+                }
+                return settingsDatabase;
             }
         }
 

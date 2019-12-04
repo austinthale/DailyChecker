@@ -42,6 +42,13 @@ namespace DailyChecker.Views
                 //var result = await App.RestService.Login(user);
                 var result = new Token();
                 await DisplayAlert("Login", "Login Success", "OK");
+
+                if(App.SettingsDatabase.GetSettings() == null)
+                {
+                    Settings settings = new Models.Settings();
+                    App.SettingsDatabase.SaveSettings(settings);
+                }
+
                 if (result != null)
                 {
                     ActivitySpinner.IsVisible = false;
