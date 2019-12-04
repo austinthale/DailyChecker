@@ -4,6 +4,6 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="DailyChecker.Views.DetailViews.InfoScreen1">
-    <Label Text="Info Screen 1"/>
+             x:Class="DailyChecker.Views.DetailViews.InfoScreen2">
+    <Label Text="Info Screen 2"/>
 </ContentPage>

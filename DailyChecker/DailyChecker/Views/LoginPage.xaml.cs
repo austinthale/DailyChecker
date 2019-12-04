@@ -38,7 +38,7 @@ namespace DailyChecker.Views
             User user = new User(Entry_Username.Text, Entry_Password.Text);
             if (user.ValidateLogin())
             {
-                DisplayAlert("Login", "Login Success", "OK");
+                await DisplayAlert("Login", "Login Success", "OK");
                 //var result = await App.RestService.Login(user);
                 var result = new Token();
                 if (result != null)
@@ -47,17 +47,17 @@ namespace DailyChecker.Views
                     //App.TokenDatabase.SaveToken(result);
                     if(Device.RuntimePlatform == Device.Android)
                     {
-                        Application.Current.MainPage = new NavigationPage(new Dashboard());
+                        Application.Current.MainPage = new MasterDetail();
                     }
                     else if (Device.RuntimePlatform == Device.iOS)
                     {
-                        await Navigation.PushModalAsync(new NavigationPage(new Dashboard()));
+                        await Navigation.PushModalAsync(new MasterDetail());
                     }
                 }
             }
             else
             {
-                DisplayAlert("Login", "Invalid Username or Password", "OK");
+                await DisplayAlert("Login", "Invalid Username or Password", "OK");
             }
         }
     }
