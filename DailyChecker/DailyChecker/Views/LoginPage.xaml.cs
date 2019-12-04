@@ -38,14 +38,16 @@ namespace DailyChecker.Views
             User user = new User(Entry_Username.Text, Entry_Password.Text);
             if (user.ValidateLogin())
             {
-                await DisplayAlert("Login", "Login Success", "OK");
+                ActivitySpinner.IsVisible = true;
                 //var result = await App.RestService.Login(user);
                 var result = new Token();
+                await DisplayAlert("Login", "Login Success", "OK");
                 if (result != null)
                 {
+                    ActivitySpinner.IsVisible = false;
                     //App.UserDatabase.SaveUser(user);
                     //App.TokenDatabase.SaveToken(result);
-                    if(Device.RuntimePlatform == Device.Android)
+                    if (Device.RuntimePlatform == Device.Android)
                     {
                         Application.Current.MainPage = new MasterDetail();
                     }
@@ -58,6 +60,7 @@ namespace DailyChecker.Views
             else
             {
                 await DisplayAlert("Login", "Invalid Username or Password", "OK");
+                ActivitySpinner.IsVisible = false;
             }
         }
     }
